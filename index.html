@@ -2,19 +2,13 @@
 <html lang="ar" dir="rtl">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>منصة الدراسة الذكية</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-
 <style>
-
 *{
 box-sizing:border-box;
 margin:0;
@@ -22,512 +16,306 @@ padding:0;
 font-family:'Tajawal',sans-serif;
 }
 
-
 body{
-
 background:#0f172a;
 color:white;
 min-height:100vh;
 direction:rtl;
-
 }
-
 
 header{
-
 text-align:center;
 padding:35px;
-
 }
-
 
 h1{
-
 font-size:40px;
-
 background:linear-gradient(45deg,#818cf8,#c084fc);
-
 -webkit-background-clip:text;
-
 color:transparent;
-
 }
-
 
 header p{
-
 color:#94a3b8;
 margin-top:10px;
-
 }
 
-
-
 .container{
-
 width:92%;
 max-width:1300px;
 margin:auto;
-
 display:grid;
-
 grid-template-columns:1fr 1fr;
-
 gap:25px;
-
 }
-
 
 @media(max-width:900px){
-
 .container{
-
 grid-template-columns:1fr;
-
 }
-
 }
-
-
 
 .card{
-
 background:#1e293b;
-
 padding:25px;
-
 border-radius:20px;
-
 border:1px solid rgba(255,255,255,.1);
-
 box-shadow:0 10px 30px #0005;
-
 }
-
-
 
 .title{
-
 font-size:22px;
-
 font-weight:bold;
-
 margin-bottom:20px;
-
 display:flex;
-
 gap:10px;
-
 align-items:center;
-
 }
-
-
 
 .title i{
-
 color:#6366f1;
-
 }
-
-
 
 .btn{
-
 background:#6366f1;
-
 color:white;
-
 border:0;
-
 padding:12px 20px;
-
 border-radius:12px;
-
 cursor:pointer;
-
 font-weight:bold;
-
 }
-
-
 
 .btn:hover{
-
 background:#4f46e5;
-
 }
-
-
 
 input,select{
-
 background:#0f172a;
-
 color:white;
-
 border:1px solid #334155;
-
 padding:12px;
-
 border-radius:10px;
-
 width:100%;
-
 }
-
 
 table{
-
 width:100%;
-
 margin-top:20px;
-
 border-collapse:collapse;
-
 }
-
 
 td,th{
-
 padding:12px;
-
 border-bottom:1px solid #334155;
-
+text-align: right;
 }
-
-
 </style>
-
 </head>
+
 <body>
 
-
 <header>
-
-<h1>
-منصة الدراسة والتركيز
-</h1>
-
-<p>
-نظم وقتك وركز في دراستك
-</p>
-
+<h1>منصة الدراسة والتركيز</h1>
+<p>نظم وقتك وركز في دراستك</p>
 </header>
-
-
 
 <div class="container">
 
-
-
 <!-- العداد -->
-
 <div class="card">
-
-
 <div class="title">
-
 <i class="fa-solid fa-clock"></i>
-
 عداد البومودورو
-
 </div>
-
-
 
 <div style="display:flex;gap:10px;flex-wrap:wrap;">
-
-
-<button class="btn" onclick="timer.setMode(25)">
-دراسة 25 دقيقة
-</button>
-
-
-<button class="btn" onclick="timer.setMode(5)">
-راحة 5 دقائق
-</button>
-
-
-<button class="btn" onclick="timer.setMode(15)">
-راحة 15 دقيقة
-</button>
-
-
+<button class="btn" onclick="timer.setMode(25)">دراسة 25 دقيقة</button>
+<button class="btn" onclick="timer.setMode(5)">راحة 5 دقائق</button>
+<button class="btn" onclick="timer.setMode(15)">راحة 15 دقيقة</button>
 </div>
 
+<h2 id="timerDisplay" style="font-size:60px;text-align:center;margin:30px;">25:00</h2>
 
-
-<h2 id="timerDisplay"
-
-style="
-font-size:60px;
-text-align:center;
-margin:30px;
-">
-
-25:00
-
-</h2>
-
-
-
-<div style="
-display:flex;
-justify-content:center;
-gap:15px;
-">
-
-
+<div style="display:flex;justify-content:center;gap:15px;">
 <button class="btn" onclick="timer.toggle()">
-
 <i id="playIcon" class="fa-solid fa-play"></i>
-
-<span id="playText">
-بدء
-</span>
-
+<span id="playText">بدء</span>
 </button>
-
-
-
-<button class="btn" onclick="timer.reset()">
-
-إعادة ضبط
-
-</button>
-
-
+<button class="btn" onclick="timer.reset()">إعادة ضبط</button>
 </div>
-
-
 </div>
-
-
-
-
-
-
 
 <!-- اليوتيوب -->
-
-
 <div class="card">
-
-
 <div class="title">
-
 <i class="fa-brands fa-youtube" style="color:red"></i>
-
 مشغل يوتيوب
-
 </div>
 
-
-
-<input id="youtubeURL"
-
-placeholder="ضع رابط فيديو يوتيوب">
-
-
+<input id="youtubeURL" placeholder="ضع رابط فيديو يوتيوب">
 <br><br>
+<button class="btn" onclick="playYoutube()">تشغيل الفيديو</button>
 
-
-<button class="btn" onclick="playYoutube()">
-
-تشغيل الفيديو
-
-</button>
-
-
-
-<div id="player"
-
-style="
-margin-top:20px;
-background:black;
-height:300px;
-border-radius:15px;
-">
-
+<div id="player" style="margin-top:20px;background:black;height:300px;border-radius:15px;overflow:hidden;"></div>
 </div>
-
-
-</div>
-
-
-
-
-
 
 <!-- جدول المهام -->
-
-
 <div class="card" style="grid-column:1/-1;">
-
-
 <div class="title">
-
 <i class="fa-solid fa-calendar"></i>
-
 جدول المهام اليومية
-
 </div>
 
-
-
-<div style="
-display:grid;
-grid-template-columns:2fr 1fr 1fr auto;
-gap:10px;
-">
-
-
-<input id="taskName"
-
-placeholder="اسم المهمة">
-
-
-<input id="taskTime"
-
-placeholder="الوقت">
-
-
-
+<div style="display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:10px;">
+<input id="taskName" placeholder="اسم المهمة">
+<input id="taskTime" placeholder="الوقت">
 <select id="taskType">
-
-<option>
-دراسة
-</option>
-
-<option>
-مراجعة
-</option>
-
-<option>
-استراحة
-</option>
-
-<option>
-أخرى
-</option>
-
+<option>دراسة</option>
+<option>مراجعة</option>
+<option>استراحة</option>
+<option>أخرى</option>
 </select>
-
-
-
-<button class="btn" onclick="addTask()">
-
-إضافة
-
-</button>
-
-
+<button class="btn" onclick="addTask()">إضافة</button>
 </div>
 
-
-
-
+<table>
+<thead>
+<tr>
+<th>المهمة</th>
+<th>الوقت</th>
+<th>النوع</th>
+<th>إجراء</th>
+</tr>
+</thead>
 <tbody id="taskList">
-
 </tbody>
-
-
 </table>
-
-
+</div>
 
 </div>
 
+<script>
+// ======================
+// كئس عداد البومودورو
+// ======================
+const timer = {
+  minutes: 25,
+  seconds: 0,
+  timerId: null,
+  isRunning: false,
 
+  updateDisplay() {
+    let m = String(this.minutes).padStart(2, '0');
+    let s = String(this.seconds).padStart(2, '0');
+    document.getElementById("timerDisplay").innerText = `${m}:${s}`;
+  },
 
-</div>
+  setMode(mins) {
+    this.stop();
+    this.minutes = mins;
+    this.seconds = 0;
+    this.updateDisplay();
+  },
 
-    
+  toggle() {
+    if (this.isRunning) {
+      this.stop();
+    } else {
+      this.start();
+    }
+  },
+
+  start() {
+    if (this.isRunning) return;
+    this.isRunning = true;
+    document.getElementById("playIcon").className = "fa-solid fa-pause";
+    document.getElementById("playText").innerText = "إيقاف مؤقت";
+
+    this.timerId = setInterval(() => {
+      if (this.seconds === 0) {
+        if (this.minutes === 0) {
+          this.stop();
+          alert("انتهى الوقت!");
+          return;
+        }
+        this.minutes--;
+        this.seconds = 59;
+      } else {
+        this.seconds--;
+      }
+      this.updateDisplay();
+    }, 1000);
+  },
+
+  stop() {
+    this.isRunning = false;
+    clearInterval(this.timerId);
+    document.getElementById("playIcon").className = "fa-solid fa-play";
+    document.getElementById("playText").innerText = "بدء";
+  },
+
+  reset() {
+    this.stop();
+    this.minutes = 25;
+    this.seconds = 0;
+    this.updateDisplay();
+  }
+};
+
 // ======================
 // مشغل اليوتيوب
 // ======================
-
-
 function playYoutube(){
+  let url = document.getElementById("youtubeURL").value.trim();
+  let id = "";
 
+  if(url.includes("watch?v=")){
+    id = url.split("watch?v=")[1].split("&")[0];
+  } else if(url.includes("youtu.be/")){
+    id = url.split("youtu.be/")[1].split("?")[0];
+  } else {
+    alert("ضع رابط يوتيوب صحيح");
+    return;
+  }
 
-let url = document.getElementById("youtubeURL").value.trim();
-
-
-let id = "";
-
-
-
-if(url.includes("watch?v=")){
-
-
-id = url.split("watch?v=")[1].split("&")[0];
-
-
+  document.getElementById("player").innerHTML = `
+    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/${id}" frameborder="0" allowfullscreen></iframe>
+  `;
 }
 
-else if(url.includes("youtu.be/")){
+// ======================
+// جدول المهام
+// ======================
+function addTask() {
+  let name = document.getElementById("taskName").value;
+  let time = document.getElementById("taskTime").value;
+  let type = document.getElementById("taskType").value;
+  let list = document.getElementById("taskList");
 
+  if(name === "") {
+    alert("الرجاء إدخال اسم المهمة");
+    return;
+  }
 
-id = url.split("youtu.be/")[1].split("?")[0];
+  let row = document.createElement("tr");
+  row.innerHTML = `
+    <td>${name}</td>
+    <td>${time}</td>
+    <td>${type}</td>
+    <td><button class="btn" style="padding:5px 10px; background:#ef4444;" onclick="this.parentElement.parentElement.remove()">حذف</button></td>
+  `;
+  
+  list.appendChild(row);
 
-
+  document.getElementById("taskName").value = "";
+  document.getElementById("taskTime").value = "";
 }
-
-else{
-
-
-alert("ضع رابط يوتيوب صحيح");
-
-return;
-
-}
-
-
-
-document.getElementById("player").innerHTML = `
-
-<iframe
-
-width="100%"
-
-height="100%"
-
-src="https://www.youtube.com/embed/${id}"
-
-frameborder="0"
-
-allowfullscreen>
-
-</iframe>
-
-`;
-
-
-
-}
-
-
 </script>
 
-
-
-
-<footer style="
-text-align:center;
-padding:25px;
-margin-top:40px;
-color:#94a3b8;
-border-top:1px solid #334155;
-">
-
+<footer style="text-align:center;padding:25px;margin-top:40px;color:#94a3b8;border-top:1px solid #334155;">
 جميع الحقوق محفوظة © 2026 | تم تطويره بواسطة عبدالله علي
-
 </footer>
 
-
-
 </body>
-
 </html>
