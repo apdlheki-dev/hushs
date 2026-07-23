@@ -1,15 +1,3 @@
-أهلاً بك. قمت بمراجعة الكود واكتشفت سبب المشكلتين اللتين ذكرتهما (عدم القدرة على إضافة مهمة وعدم عمل مشغل اليوتيوب).
-السبب الرئيسي للمشكلتين:
-يعود السبب إلى وجود أخطاء في الرموز (Syntax Errors) أثناء عملية نسخ الكود السابق ولصقه، مما أدى إلى حذف أجزاء مهمة من دوال JavaScript (مثل addTask و جزء من onYouTubeIframeAPIReady)، بالإضافة إلى عدم إغلاق بعض الوسوم بشكل صحيح.
-الحل الجذري:
-لقد قمت بإصلاح الكود بالكامل وإعادة بنائه ليعمل بشكل مثالي.
-التحسينات والإصلاحات في هذا الكود:
- * إصلاح جدول المهام: تم تصحيح دالة addTask لتعمل بشكل صحيح، مع إضافة ميزة حفظ المهام تلقائياً في ذاكرة المتصفح (Local Storage) حتى لا تفقد بياناتك عند تحديث الصفحة.
- * إصلاح مشغل اليوتيوب: تم تصحيح دالة تهيئة المشغل ليعمل الرابط الافتراضي، وتم التأكد من عمل دالة loadYouTubeVideo لاستبدال الفيديو بالرابط الذي تدخله.
- * تحسين التوافقية: تم التأكد من أن جميع الأكواد تعمل داخل المتصفحات الحديثة.
-ملاحظة هامة جداً:
-لكي يعمل مشغل اليوتيوب، يجب فتح الصفحة من خلال خادم محلي (مثل Live Server في VS Code) أو استضافتها على موقع فعلي. قد لا تعمل روابط اليوتيوب المضمنة إذا قمت بفتح ملف الـ HTML مباشرة من جهازك (file:///) بسبب سياسات الأمان في المتصفحات.
-تفضل الكود الكامل والمصحح:
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -49,6 +37,8 @@
                 radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 40%),
                 radial-gradient(circle at 90% 80%, rgba(168, 85, 247, 0.15) 0%, transparent 40%);
             background-attachment: fixed;
+            direction: rtl;
+            text-align: right;
         }
 
         header {
@@ -62,13 +52,12 @@
             background: linear-gradient(135deg, #818cf8, #c084fc);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.2rem;
         }
 
         .developer-credit {
             color: var(--text-muted);
             font-size: 0.9rem;
-            margin-top: -0.2rem;
             opacity: 0.8;
             margin-bottom: 1rem;
         }
@@ -174,6 +163,7 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            font-size: 1rem;
         }
 
         .btn:hover {
@@ -215,11 +205,12 @@
         .player-container {
             position: relative;
             width: 100%;
-            padding-bottom: 56.25%;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
             background: #000;
             border-radius: 12px;
             overflow: hidden;
             border: 1px solid var(--border);
+            margin-top: 0.5rem;
         }
 
         .player-container iframe {
@@ -277,6 +268,7 @@
         th, td {
             padding: 1rem;
             border-bottom: 1px solid var(--border);
+            text-align: right;
         }
 
         th {
@@ -341,16 +333,16 @@
                 عداد البومودورو للتركيز
             </div>
             <div class="timer-modes">
-                <button class="mode-btn active" onclick="setTimerMode(25, this)">دراسة (25 د)</button>
-                <button class="mode-btn" onclick="setTimerMode(5, this)">استراحة قصيرة (5 د)</button>
-                <button class="mode-btn" onclick="setTimerMode(15, this)">استراحة طويلة (15 د)</button>
+                <button class="mode-btn active" onclick="timer.setMode(25, this)">دراسة (25 د)</button>
+                <button class="mode-btn" onclick="timer.setMode(5, this)">استراحة قصيرة (5 د)</button>
+                <button class="mode-btn" onclick="timer.setMode(15, this)">استراحة طويلة (15 د)</button>
             </div>
             <div class="timer-display" id="timerDisplay">25:00</div>
             <div class="timer-controls">
-                <button class="btn" id="startPauseBtn" onclick="toggleTimer()">
+                <button class="btn" id="startPauseBtn" onclick="timer.toggle()">
                     <i class="fa-solid fa-play" id="playPauseIcon"></i> <span id="playPauseText">بدء</span>
                 </button>
-                <button class="btn btn-secondary" onclick="resetTimer()">
+                <button class="btn btn-secondary" onclick="timer.reset()">
                     <i class="fa-solid fa-rotate-left"></i> إعادة ضبط
                 </button>
             </div>
@@ -363,11 +355,11 @@
                 مشغل اليوتيوب (دراسة واسترخاء)
             </div>
             <div class="yt-input-group">
-                <input type="text" id="ytUrlInput" class="yt-input" placeholder="الصق رابط فيديو يوتيوب هنا...">
-                <button class="btn" onclick="loadYouTubeVideo()">تشغيل</button>
+                <input type="text" id="ytUrlInput" class="yt-input" placeholder="الصق رابط فيديو يوتيوب هنا (مثال: رابط أغنية هادئة)">
+                <button class="btn" onclick="youtubePlayer.loadVideo()">تشغيل</button>
             </div>
             <div class="player-container">
-                <div id="youtubePlayer"></div>
+                <div id="youtubePlayerIframe"></div>
             </div>
         </div>
 
@@ -375,7 +367,7 @@
         <div class="card full-width">
             <div class="card-title">
                 <i class="fa-solid fa-calendar-days"></i>
-                جدول المهام اليومية
+                جدول المهام اليومية (يحفظ تلقائياً)
             </div>
             <div class="schedule-form">
                 <input type="text" id="taskName" class="form-input" placeholder="اسم المهمة أو المادة الدراسية...">
@@ -386,7 +378,7 @@
                     <option value="استراحة">استراحة</option>
                     <option value="أخرى">أخرى</option>
                 </select>
-                <button class="btn" onclick="addTask()">
+                <button class="btn" onclick="schedule.add()">
                     <i class="fa-solid fa-plus"></i> إضافة مهمة
                 </button>
             </div>
@@ -413,7 +405,10 @@
     </footer>
 
     <script>
-        // --- Timer Logic ---
-        let totalSeconds = 25 * 60;
-        let timerInterval = null;
-
+        // --- قسم العداد (Timer) ---
+        const timer = {
+            interval: null,
+            totalSeconds: 25 * 60,
+            isRunning: false,
+            displayElement: document.getElementById('timerDisplay'),
+            btnText:
