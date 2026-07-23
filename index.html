@@ -355,7 +355,7 @@
                 مشغل اليوتيوب (دراسة واسترخاء)
             </div>
             <div class="yt-input-group">
-                <input type="text" id="ytUrlInput" class="yt-input" placeholder="الصق رابط فيديو يوتيوب هنا (مثال: رابط أغنية هادئة)">
+                <input type="text" id="ytUrlInput" class="yt-input" placeholder="الصق رابط فيديو يوتيوب هنا (مثال: رابط موسيقى هادئة)">
                 <button class="btn" onclick="youtubePlayer.loadVideo()">تشغيل</button>
             </div>
             <div class="player-container">
@@ -409,6 +409,15 @@
         const timer = {
             interval: null,
             totalSeconds: 25 * 60,
+            initialSeconds: 25 * 60,
             isRunning: false,
             displayElement: document.getElementById('timerDisplay'),
-            btnText:
+            startBtn: document.getElementById('startPauseBtn'),
+            iconElement: document.getElementById('playPauseIcon'),
+            textElement: document.getElementById('playPauseText'),
+
+            updateDisplay: function() {
+                const minutes = Math.floor(this.totalSeconds / 60);
+                const seconds = this.totalSeconds % 60;
+                this.displayElement.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+            },
