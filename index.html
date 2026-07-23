@@ -8,7 +8,7 @@
 
 <title>منصة الدراسة الذكية</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -16,55 +16,48 @@
 <style>
 
 *{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-    font-family:'Tajawal',sans-serif;
+box-sizing:border-box;
+margin:0;
+padding:0;
+font-family:'Tajawal',sans-serif;
 }
 
 
 body{
 
-    background:#0f172a;
-    color:#f8fafc;
-    min-height:100vh;
-
-    background-image:
-    radial-gradient(circle at 10% 20%,rgba(99,102,241,.2),transparent 40%),
-    radial-gradient(circle at 90% 80%,rgba(168,85,247,.2),transparent 40%);
+background:#0f172a;
+color:white;
+min-height:100vh;
+direction:rtl;
 
 }
-
 
 
 header{
 
-    text-align:center;
-    padding:35px 15px;
+text-align:center;
+padding:35px;
 
 }
 
 
+h1{
 
-header h1{
+font-size:40px;
 
-    font-size:2.5rem;
-    font-weight:900;
+background:linear-gradient(45deg,#818cf8,#c084fc);
 
-    background:linear-gradient(135deg,#818cf8,#c084fc);
+-webkit-background-clip:text;
 
-    -webkit-background-clip:text;
-
-    color:transparent;
+color:transparent;
 
 }
-
 
 
 header p{
 
-    color:#94a3b8;
-    margin-top:10px;
+color:#94a3b8;
+margin-top:10px;
 
 }
 
@@ -72,19 +65,17 @@ header p{
 
 .container{
 
-    width:92%;
-    max-width:1400px;
+width:92%;
+max-width:1300px;
+margin:auto;
 
-    margin:auto;
+display:grid;
 
-    display:grid;
+grid-template-columns:1fr 1fr;
 
-    grid-template-columns:1fr 1fr;
-
-    gap:25px;
+gap:25px;
 
 }
-
 
 
 @media(max-width:900px){
@@ -101,15 +92,15 @@ grid-template-columns:1fr;
 
 .card{
 
-    background:rgba(30,41,59,.75);
+background:#1e293b;
 
-    border:1px solid rgba(255,255,255,.1);
+padding:25px;
 
-    border-radius:20px;
+border-radius:20px;
 
-    padding:25px;
+border:1px solid rgba(255,255,255,.1);
 
-    box-shadow:0 10px 30px rgba(0,0,0,.3);
+box-shadow:0 10px 30px #0005;
 
 }
 
@@ -117,21 +108,17 @@ grid-template-columns:1fr;
 
 .title{
 
-    font-size:1.3rem;
+font-size:22px;
 
-    font-weight:700;
+font-weight:bold;
 
-    border-bottom:1px solid rgba(255,255,255,.1);
+margin-bottom:20px;
 
-    padding-bottom:15px;
+display:flex;
 
-    margin-bottom:20px;
+gap:10px;
 
-    display:flex;
-
-    gap:10px;
-
-    align-items:center;
+align-items:center;
 
 }
 
@@ -139,7 +126,7 @@ grid-template-columns:1fr;
 
 .title i{
 
-    color:#6366f1;
+color:#6366f1;
 
 }
 
@@ -147,19 +134,19 @@ grid-template-columns:1fr;
 
 .btn{
 
-    background:#6366f1;
+background:#6366f1;
 
-    color:white;
+color:white;
 
-    border:none;
+border:0;
 
-    padding:12px 22px;
+padding:12px 20px;
 
-    border-radius:12px;
+border-radius:12px;
 
-    cursor:pointer;
+cursor:pointer;
 
-    font-weight:700;
+font-weight:bold;
 
 }
 
@@ -167,7 +154,7 @@ grid-template-columns:1fr;
 
 .btn:hover{
 
-    background:#4f46e5;
+background:#4f46e5;
 
 }
 
@@ -175,23 +162,42 @@ grid-template-columns:1fr;
 
 input,select{
 
-    background:rgba(0,0,0,.25);
+background:#0f172a;
 
-    color:white;
+color:white;
 
-    border:1px solid rgba(255,255,255,.1);
+border:1px solid #334155;
 
-    padding:12px;
+padding:12px;
 
-    border-radius:10px;
+border-radius:10px;
 
-    outline:none;
+width:100%;
+
+}
+
+
+table{
+
+width:100%;
+
+margin-top:20px;
+
+border-collapse:collapse;
+
+}
+
+
+td,th{
+
+padding:12px;
+
+border-bottom:1px solid #334155;
 
 }
 
 
 </style>
-
 
 </head>
 <body>
@@ -204,7 +210,7 @@ input,select{
 </h1>
 
 <p>
-نظم وقتك وركز على دراستك
+نظم وقتك وركز في دراستك
 </p>
 
 </header>
@@ -230,21 +236,21 @@ input,select{
 
 
 
-<div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;">
+<div style="display:flex;gap:10px;flex-wrap:wrap;">
 
 
-<button class="btn" onclick="timer.setMode(25,this)">
+<button class="btn" onclick="timer.setMode(25)">
 دراسة 25 دقيقة
 </button>
 
 
-<button class="btn" onclick="timer.setMode(5,this)">
+<button class="btn" onclick="timer.setMode(5)">
 راحة 5 دقائق
 </button>
 
 
-<button class="btn" onclick="timer.setMode(15,this)">
-راحة طويلة 15 دقيقة
+<button class="btn" onclick="timer.setMode(15)">
+راحة 15 دقيقة
 </button>
 
 
@@ -253,12 +259,15 @@ input,select{
 
 
 <h2 id="timerDisplay"
+
 style="
-font-size:4rem;
+font-size:60px;
 text-align:center;
-margin:30px 0;
+margin:30px;
 ">
+
 25:00
+
 </h2>
 
 
@@ -272,7 +281,7 @@ gap:15px;
 
 <button class="btn" onclick="timer.toggle()">
 
-<i class="fa-solid fa-play" id="playIcon"></i>
+<i id="playIcon" class="fa-solid fa-play"></i>
 
 <span id="playText">
 بدء
@@ -298,6 +307,8 @@ gap:15px;
 
 
 
+
+
 <!-- اليوتيوب -->
 
 
@@ -306,9 +317,7 @@ gap:15px;
 
 <div class="title">
 
-<i class="fa-brands fa-youtube"
-style="color:red">
-</i>
+<i class="fa-brands fa-youtube" style="color:red"></i>
 
 مشغل يوتيوب
 
@@ -316,24 +325,19 @@ style="color:red">
 
 
 
-<div style="
-display:flex;
-gap:10px;
-">
-
-
 <input id="youtubeURL"
+
 placeholder="ضع رابط فيديو يوتيوب">
+
+
+<br><br>
 
 
 <button class="btn" onclick="playYoutube()">
 
-تشغيل
+تشغيل الفيديو
 
 </button>
-
-
-</div>
 
 
 
@@ -342,16 +346,15 @@ placeholder="ضع رابط فيديو يوتيوب">
 style="
 margin-top:20px;
 background:black;
-aspect-ratio:16/9;
+height:300px;
 border-radius:15px;
-overflow:hidden;
 ">
 
 </div>
 
 
-
 </div>
+
 
 
 
@@ -363,12 +366,11 @@ overflow:hidden;
 <div class="card" style="grid-column:1/-1;">
 
 
-
 <div class="title">
 
 <i class="fa-solid fa-calendar"></i>
 
-جدول المهام
+جدول المهام اليومية
 
 </div>
 
@@ -382,10 +384,12 @@ gap:10px;
 
 
 <input id="taskName"
+
 placeholder="اسم المهمة">
 
 
 <input id="taskTime"
+
 placeholder="الوقت">
 
 
@@ -408,7 +412,6 @@ placeholder="الوقت">
 أخرى
 </option>
 
-
 </select>
 
 
@@ -425,34 +428,7 @@ placeholder="الوقت">
 
 
 
-<table style="
-width:100%;
-margin-top:25px;
-text-align:right;
-">
-
-
-<thead>
-
-<tr>
-
-<th>المهمة</th>
-
-<th>الوقت</th>
-
-<th>التصنيف</th>
-
-<th>حذف</th>
-
-
-</tr>
-
-</thead>
-
-
-
 <tbody id="taskList">
-
 
 </tbody>
 
@@ -460,207 +436,98 @@ text-align:right;
 </table>
 
 
+
 </div>
 
 
 
-    </div>
+</div>
 
-    <script>
-
-
+    
 // ======================
-// عداد البومودورو
+// مشغل اليوتيوب
 // ======================
 
 
-const timer = {
+function playYoutube(){
 
-seconds:25*60,
 
-defaultSeconds:25*60,
+let url = document.getElementById("youtubeURL").value.trim();
 
-running:false,
 
-interval:null,
-
-display:document.getElementById("timerDisplay"),
-
-icon:document.getElementById("playIcon"),
-
-text:document.getElementById("playText"),
+let id = "";
 
 
 
-update(){
-
-let m=Math.floor(this.seconds/60);
-
-let s=this.seconds%60;
+if(url.includes("watch?v=")){
 
 
-this.display.textContent =
-String(m).padStart(2,"0")
-+ ":"
-+
-String(s).padStart(2,"0");
-
-},
+id = url.split("watch?v=")[1].split("&")[0];
 
 
+}
 
-toggle(){
+else if(url.includes("youtu.be/")){
 
 
-if(this.running){
+id = url.split("youtu.be/")[1].split("?")[0];
 
-clearInterval(this.interval);
-
-this.running=false;
-
-this.icon.className="fa-solid fa-play";
-
-this.text.textContent="بدء";
 
 }
 
 else{
 
 
-this.running=true;
+alert("ضع رابط يوتيوب صحيح");
 
-this.icon.className="fa-solid fa-pause";
-
-this.text.textContent="إيقاف";
-
-
-this.interval=setInterval(()=>{
-
-
-if(this.seconds>0){
-
-this.seconds--;
-
-this.update();
-
-}
-
-else{
-
-clearInterval(this.interval);
-
-this.running=false;
-
-alert("انتهى الوقت");
-
-this.icon.className="fa-solid fa-play";
-
-this.text.textContent="بدء";
-
-}
-
-
-},1000);
-
+return;
 
 }
 
 
 
-},
+document.getElementById("player").innerHTML = `
 
+<iframe
 
+width="100%"
 
-reset(){
+height="100%"
 
+src="https://www.youtube.com/embed/${id}"
 
-clearInterval(this.interval);
+frameborder="0"
 
-this.running=false;
+allowfullscreen>
 
-this.seconds=this.defaultSeconds;
+</iframe>
 
-this.update();
+`;
 
-this.icon.className="fa-solid fa-play";
-
-this.text.textContent="بدء";
-
-
-},
-
-
-
-setMode(min,btn){
-
-
-clearInterval(this.interval);
-
-this.running=false;
-
-
-this.seconds=min*60;
-
-this.defaultSeconds=this.seconds;
-
-
-this.update();
 
 
 }
 
 
-
-};
-
-
-
-timer.update();
+</script>
 
 
 
 
+<footer style="
+text-align:center;
+padding:25px;
+margin-top:40px;
+color:#94a3b8;
+border-top:1px solid #334155;
+">
 
-// ======================
-// جدول المهام والحفظ
-// ======================
+جميع الحقوق محفوظة © 2026 | تم تطويره بواسطة عبدالله علي
 
-
-let tasks =
-JSON.parse(localStorage.getItem("tasks")) || [];
-
-
-
-function saveTasks(){
-
-localStorage.setItem(
-"tasks",
-JSON.stringify(tasks)
-);
-
-}
+</footer>
 
 
 
+</body>
 
-function showTasks(){
-
-
-let list=document.getElementById("taskList");
-
-list.innerHTML="";
-
-
-tasks.forEach((t,i)=>{
-
-
-list.innerHTML += `
-
-<tr>
-
-<td>${t.name}</td>
-
-<td>${
-youtu.be/
-    
-    
+</html>
