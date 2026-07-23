@@ -2,6 +2,7 @@
 <html lang="ar" dir="rtl">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -14,19 +15,7 @@
 
 <style>
 
-:root {
-    --bg-primary:#0f172a;
-    --bg-secondary:#1e293b;
-    --card:rgba(30,41,59,.75);
-    --accent:#6366f1;
-    --accent-hover:#4f46e5;
-    --text:#f8fafc;
-    --muted:#94a3b8;
-    --border:rgba(255,255,255,.1);
-}
-
-
-* {
+*{
     box-sizing:border-box;
     margin:0;
     padding:0;
@@ -34,22 +23,21 @@
 }
 
 
-body {
+body{
 
-    background:
-    radial-gradient(circle at 10% 20%,rgba(99,102,241,.18),transparent 40%),
-    radial-gradient(circle at 90% 80%,rgba(168,85,247,.18),transparent 40%),
-    var(--bg-primary);
-
-    color:var(--text);
+    background:#0f172a;
+    color:#f8fafc;
     min-height:100vh;
-    direction:rtl;
-    text-align:right;
+
+    background-image:
+    radial-gradient(circle at 10% 20%,rgba(99,102,241,.2),transparent 40%),
+    radial-gradient(circle at 90% 80%,rgba(168,85,247,.2),transparent 40%);
 
 }
 
 
-header {
+
+header{
 
     text-align:center;
     padding:35px 15px;
@@ -57,40 +45,36 @@ header {
 }
 
 
-header h1 {
 
-    font-size:2.4rem;
+header h1{
+
+    font-size:2.5rem;
     font-weight:900;
 
     background:linear-gradient(135deg,#818cf8,#c084fc);
 
     -webkit-background-clip:text;
+
     color:transparent;
 
 }
 
 
-.developer {
 
-    color:var(--muted);
-    margin:10px;
+header p{
 
-}
-
-
-header p {
-
-    color:var(--muted);
-    font-size:1.1rem;
+    color:#94a3b8;
+    margin-top:10px;
 
 }
 
 
 
-.container {
+.container{
 
     width:92%;
     max-width:1400px;
+
     margin:auto;
 
     display:grid;
@@ -100,6 +84,7 @@ header p {
     gap:25px;
 
 }
+
 
 
 @media(max-width:900px){
@@ -114,187 +99,163 @@ grid-template-columns:1fr;
 
 
 
-.card {
+.card{
 
-background:var(--card);
+    background:rgba(30,41,59,.75);
 
-backdrop-filter:blur(15px);
+    border:1px solid rgba(255,255,255,.1);
 
-border:1px solid var(--border);
+    border-radius:20px;
 
-border-radius:20px;
+    padding:25px;
 
-padding:25px;
-
-box-shadow:0 10px 30px rgba(0,0,0,.3);
+    box-shadow:0 10px 30px rgba(0,0,0,.3);
 
 }
 
 
 
-.title {
+.title{
 
-font-size:1.3rem;
+    font-size:1.3rem;
 
-font-weight:700;
+    font-weight:700;
 
-padding-bottom:15px;
+    border-bottom:1px solid rgba(255,255,255,.1);
 
-border-bottom:1px solid var(--border);
+    padding-bottom:15px;
 
-margin-bottom:20px;
+    margin-bottom:20px;
 
-display:flex;
+    display:flex;
 
-align-items:center;
+    gap:10px;
 
-gap:10px;
-
-}
-
-
-
-.title i {
-
-color:var(--accent);
+    align-items:center;
 
 }
 
 
 
-button {
+.title i{
 
-border:none;
-
-cursor:pointer;
-
-font-family:inherit;
+    color:#6366f1;
 
 }
 
 
 
-.btn {
+.btn{
 
-background:var(--accent);
+    background:#6366f1;
 
-color:white;
+    color:white;
 
-padding:12px 25px;
+    border:none;
 
-border-radius:12px;
+    padding:12px 22px;
 
-font-weight:700;
+    border-radius:12px;
 
-transition:.3s;
+    cursor:pointer;
 
-}
-
-
-.btn:hover {
-
-background:var(--accent-hover);
-
-transform:translateY(-2px);
+    font-weight:700;
 
 }
 
 
 
-.btn-secondary {
+.btn:hover{
 
-background:rgba(255,255,255,.08);
-
-border:1px solid var(--border);
+    background:#4f46e5;
 
 }
 
 
 
-input,select {
+input,select{
 
-width:100%;
+    background:rgba(0,0,0,.25);
 
-background:rgba(0,0,0,.2);
+    color:white;
 
-border:1px solid var(--border);
+    border:1px solid rgba(255,255,255,.1);
 
-color:white;
+    padding:12px;
 
-padding:12px;
+    border-radius:10px;
 
-border-radius:10px;
-
-outline:none;
-
-}
-
-
-input:focus,select:focus{
-
-border-color:var(--accent);
+    outline:none;
 
 }
 
 
 </style>
 
+
 </head>
 <body>
+
 
 <header>
 
 <h1>
-    منصة الدراسة والتركيز
+منصة الدراسة والتركيز
 </h1>
 
-<div class="developer">
-    تم إعداد الواجهة بواسطة عبدالله علي
-</div>
-
 <p>
-    نظم وقتك، ركز في مهامك، واستمتع بأجواء هادئة تساعدك على الإنتاجية
+نظم وقتك وركز على دراستك
 </p>
 
 </header>
 
 
+
 <div class="container">
 
 
-<!-- قسم العداد -->
+
+<!-- العداد -->
 
 <div class="card">
 
+
 <div class="title">
+
 <i class="fa-solid fa-clock"></i>
-عداد البومودورو للتركيز
-</div>
 
-
-<div class="modes">
-
-<button class="btn mode active" onclick="timer.setMode(25,this)">
-دراسة (25 د)
-</button>
-
-
-<button class="btn btn-secondary mode" onclick="timer.setMode(5,this)">
-استراحة قصيرة (5 د)
-</button>
-
-
-<button class="btn btn-secondary mode" onclick="timer.setMode(15,this)">
-استراحة طويلة (15 د)
-</button>
-
+عداد البومودورو
 
 </div>
 
 
-<h2 id="timerDisplay" style="
-text-align:center;
+
+<div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;">
+
+
+<button class="btn" onclick="timer.setMode(25,this)">
+دراسة 25 دقيقة
+</button>
+
+
+<button class="btn" onclick="timer.setMode(5,this)">
+راحة 5 دقائق
+</button>
+
+
+<button class="btn" onclick="timer.setMode(15,this)">
+راحة طويلة 15 دقيقة
+</button>
+
+
+</div>
+
+
+
+<h2 id="timerDisplay"
+style="
 font-size:4rem;
+text-align:center;
 margin:30px 0;
 ">
 25:00
@@ -321,9 +282,7 @@ gap:15px;
 
 
 
-<button class="btn btn-secondary" onclick="timer.reset()">
-
-<i class="fa-solid fa-rotate-left"></i>
+<button class="btn" onclick="timer.reset()">
 
 إعادة ضبط
 
@@ -339,7 +298,7 @@ gap:15px;
 
 
 
-<!-- قسم اليوتيوب -->
+<!-- اليوتيوب -->
 
 
 <div class="card">
@@ -347,9 +306,11 @@ gap:15px;
 
 <div class="title">
 
-<i class="fa-brands fa-youtube" style="color:#ef4444"></i>
+<i class="fa-brands fa-youtube"
+style="color:red">
+</i>
 
-مشغل اليوتيوب
+مشغل يوتيوب
 
 </div>
 
@@ -365,7 +326,7 @@ gap:10px;
 placeholder="ضع رابط فيديو يوتيوب">
 
 
-<button class="btn" onclick="youtube.load()">
+<button class="btn" onclick="playYoutube()">
 
 تشغيل
 
@@ -376,16 +337,18 @@ placeholder="ضع رابط فيديو يوتيوب">
 
 
 
-<div id="player" style="
+<div id="player"
+
+style="
 margin-top:20px;
-aspect-ratio:16/9;
 background:black;
+aspect-ratio:16/9;
 border-radius:15px;
 overflow:hidden;
 ">
 
-
 </div>
+
 
 
 </div>
@@ -400,11 +363,12 @@ overflow:hidden;
 <div class="card" style="grid-column:1/-1;">
 
 
+
 <div class="title">
 
-<i class="fa-solid fa-calendar-days"></i>
+<i class="fa-solid fa-calendar"></i>
 
-جدول المهام اليومية
+جدول المهام
 
 </div>
 
@@ -418,12 +382,12 @@ gap:10px;
 
 
 <input id="taskName"
-placeholder="اسم المهمة أو المادة">
-
+placeholder="اسم المهمة">
 
 
 <input id="taskTime"
 placeholder="الوقت">
+
 
 
 <select id="taskType">
@@ -444,13 +408,12 @@ placeholder="الوقت">
 أخرى
 </option>
 
+
 </select>
 
 
 
-<button class="btn" onclick="tasks.add()">
-
-<i class="fa-solid fa-plus"></i>
+<button class="btn" onclick="addTask()">
 
 إضافة
 
@@ -461,10 +424,11 @@ placeholder="الوقت">
 
 
 
+
 <table style="
 width:100%;
 margin-top:25px;
-border-collapse:collapse;
+text-align:right;
 ">
 
 
@@ -472,24 +436,16 @@ border-collapse:collapse;
 
 <tr>
 
-<th>
-المهمة
-</th>
+<th>المهمة</th>
 
-<th>
-الوقت
-</th>
+<th>الوقت</th>
 
-<th>
-التصنيف
-</th>
+<th>التصنيف</th>
 
-<th>
-حذف
-</th>
+<th>حذف</th>
+
 
 </tr>
-
 
 </thead>
 
@@ -502,6 +458,14 @@ border-collapse:collapse;
 
 
 </table>
+
+
+</div>
+
+
+
+    </div>
+
     <script>
 
 
@@ -512,14 +476,13 @@ border-collapse:collapse;
 
 const timer = {
 
-seconds:1500,
+seconds:25*60,
 
-defaultSeconds:1500,
+defaultSeconds:25*60,
 
 running:false,
 
 interval:null,
-
 
 display:document.getElementById("timerDisplay"),
 
@@ -529,29 +492,27 @@ text:document.getElementById("playText"),
 
 
 
-show:function(){
+update(){
 
-let min=Math.floor(this.seconds/60);
+let m=Math.floor(this.seconds/60);
 
-let sec=this.seconds%60;
+let s=this.seconds%60;
 
 
 this.display.textContent =
-String(min).padStart(2,"0")
+String(m).padStart(2,"0")
++ ":"
 +
-":"
-+
-String(sec).padStart(2,"0");
+String(s).padStart(2,"0");
 
 },
 
 
 
-toggle:function(){
+toggle(){
 
 
 if(this.running){
-
 
 clearInterval(this.interval);
 
@@ -560,7 +521,6 @@ this.running=false;
 this.icon.className="fa-solid fa-play";
 
 this.text.textContent="بدء";
-
 
 }
 
@@ -569,11 +529,9 @@ else{
 
 this.running=true;
 
-
 this.icon.className="fa-solid fa-pause";
 
 this.text.textContent="إيقاف";
-
 
 
 this.interval=setInterval(()=>{
@@ -581,59 +539,48 @@ this.interval=setInterval(()=>{
 
 if(this.seconds>0){
 
-
 this.seconds--;
 
-this.show();
-
+this.update();
 
 }
 
 else{
 
-
 clearInterval(this.interval);
 
 this.running=false;
 
-
-alert("انتهى الوقت!");
-
+alert("انتهى الوقت");
 
 this.icon.className="fa-solid fa-play";
 
 this.text.textContent="بدء";
 
-
 }
-
 
 
 },1000);
 
 
-
 }
+
 
 
 },
 
 
 
-reset:function(){
+reset(){
 
 
 clearInterval(this.interval);
 
-
 this.running=false;
-
 
 this.seconds=this.defaultSeconds;
 
-
-this.show();
-
+this.update();
 
 this.icon.className="fa-solid fa-play";
 
@@ -644,45 +591,20 @@ this.text.textContent="بدء";
 
 
 
-
-setMode:function(minutes,button){
+setMode(min,btn){
 
 
 clearInterval(this.interval);
 
-
 this.running=false;
 
 
-this.seconds=minutes*60;
-
+this.seconds=min*60;
 
 this.defaultSeconds=this.seconds;
 
 
-this.show();
-
-
-
-document.querySelectorAll(".mode")
-.forEach(btn=>{
-
-btn.classList.remove("active");
-
-btn.classList.add("btn-secondary");
-
-});
-
-
-button.classList.add("active");
-
-button.classList.remove("btn-secondary");
-
-
-
-this.icon.className="fa-solid fa-play";
-
-this.text.textContent="بدء";
+this.update();
 
 
 }
@@ -693,15 +615,10 @@ this.text.textContent="بدء";
 
 
 
-timer.show();
-
-    </script>
-
-</div>
+timer.update();
 
 
-</div>
-    <script>
+
 
 
 // ======================
@@ -709,281 +626,41 @@ timer.show();
 // ======================
 
 
-const tasks = {
-
-
-items: JSON.parse(localStorage.getItem("studyTasks")) || [],
+let tasks =
+JSON.parse(localStorage.getItem("tasks")) || [];
 
 
 
-save:function(){
+function saveTasks(){
 
 localStorage.setItem(
-"studyTasks",
-JSON.stringify(this.items)
+"tasks",
+JSON.stringify(tasks)
 );
 
-},
+}
 
 
 
 
-show:function(){
+function showTasks(){
 
 
 let list=document.getElementById("taskList");
 
-
 list.innerHTML="";
 
 
-
-this.items.forEach((task,index)=>{
+tasks.forEach((t,i)=>{
 
 
 list.innerHTML += `
 
-<tr style="border-bottom:1px solid rgba(255,255,255,.1)">
+<tr>
 
-<td style="padding:12px">
-${task.name}
-</td>
+<td>${t.name}</td>
 
-
-<td style="padding:12px">
-${task.time}
-</td>
-
-
-<td style="padding:12px">
-<span style="
-background:rgba(99,102,241,.2);
-color:#818cf8;
-padding:5px 12px;
-border-radius:20px;
-">
-${task.type}
-</span>
-</td>
-
-
-<td style="padding:12px">
-
-<button
-onclick="tasks.remove(${index})"
-style="
-background:#ef4444;
-color:white;
-padding:7px 15px;
-border-radius:8px;
-">
-
-حذف
-
-</button>
-
-</td>
-
-
-</tr>
-
-
-`;
-
-
-
-});
-
-
-},
-
-
-
-
-add:function(){
-
-
-let name=document.getElementById("taskName").value.trim();
-
-let time=document.getElementById("taskTime").value.trim();
-
-let type=document.getElementById("taskType").value;
-
-
-
-if(name==="" || time===""){
-
-
-alert("اكتب اسم المهمة والوقت");
-
-return;
-
-
-}
-
-
-
-this.items.push({
-
-name:name,
-
-time:time,
-
-type:type
-
-});
-
-
-
-this.save();
-
-this.show();
-
-
-
-document.getElementById("taskName").value="";
-
-document.getElementById("taskTime").value="";
-
-
-},
-
-
-
-
-remove:function(index){
-
-
-this.items.splice(index,1);
-
-
-this.save();
-
-
-this.show();
-
-
-
-}
-
-
-
-
-
-tasks.show();
-
-
-
-    </script>
+<td>${
+youtu.be/
     
-<script>
-
-
-// ======================
-// مشغل اليوتيوب
-// ======================
-
-
-const youtube = {
-
-
-load:function(){
-
-
-let url=document.getElementById("youtubeURL").value.trim();
-
-
-if(url===""){
-
-alert("ضع رابط يوتيوب أولاً");
-
-return;
-
-}
-
-
-
-let videoId="";
-
-
-
-// رابط عادي
-if(url.includes("watch?v=")){
-
-
-videoId=url.split("watch?v=")[1].split("&")[0];
-
-
-}
-
-
-// رابط مختصر
-else if(url.includes("youtu.be/")){
-
-
-videoId=url.split("youtu.be/")[1].split("?")[0];
-
-
-}
-
-
-else{
-
-
-alert("الرابط غير صحيح");
-
-return;
-
-
-}
-
-
-
-document.getElementById("player").innerHTML=`
-
-<iframe
-
-width="100%"
-
-height="100%"
-
-src="https://www.youtube.com/embed/${videoId}"
-
-frameborder="0"
-
-allowfullscreen>
-
-</iframe>
-
-`;
-
-
-
-}
-
-
-
-};
-
-
-
-</script>
-
-
-
-<footer style="
-text-align:center;
-padding:25px;
-margin-top:40px;
-color:#94a3b8;
-border-top:1px solid rgba(255,255,255,.1);
-">
-
-جميع الحقوق محفوظة © 2026 | تم تطويره بواسطة عبدالله علي
-
-</footer>
-
-
-</body>
-
-</html>
+    
