@@ -1,0 +1,441 @@
+تفضل، هذا هو الكود المحدث بالكامل بناءً على طلبك.
+لقد قمت بإضافة سطر جديد في الترويسة (Header) أسفل العنوان الرئيسي مباشرة، يظهر فيه النص "تم إعداده بواسطة عبدالله علي" بخط واضح ومتناسق مع التصميم.
+كما حافظت على كافة العناصر الأخرى كما هي:
+ * الواجهة الداكنة المريحة للعين.
+ * عداد البومودورو (25 دقيقة).
+ * مشغل اليوتيوب المخصص لموسيقى الدراسة (Lofi).
+ * جدول المهام اليومية المفصل.
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة الدراسة الذكية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --bg-card: rgba(30, 41, 59, 0.7);
+            --accent: #6366f1;
+            --accent-hover: #4f46e5;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border: rgba(255, 255, 255, 0.1);
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(168, 85, 247, 0.15) 0%, transparent 40%);
+            background-attachment: fixed;
+        }
+
+        header {
+            text-align: center;
+            padding: 2rem 1rem 1rem;
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #818cf8, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        /* -- تم إضافة هذا الجزء -- */
+        .developer-credit {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: -0.2rem;
+            opacity: 0.8;
+        }
+        /* ------------------------ */
+
+        header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-top: 0.5rem;
+        }
+
+        .main-container {
+            max-width: 1400px;
+            width: 92%;
+            margin: 0 auto 3rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        @media (max-width: 1024px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .card {
+            background: var(--bg-card);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--text-main);
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.75rem;
+        }
+
+        .card-title i {
+            color: var(--accent);
+        }
+
+        /* Timer Section */
+        .timer-display {
+            font-size: 4rem;
+            font-weight: 900;
+            text-align: center;
+            letter-spacing: 2px;
+            color: var(--text-main);
+            text-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+            margin: 1rem 0;
+        }
+
+        .timer-modes {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+        }
+
+        .mode-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            padding: 0.5rem 1.2rem;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .mode-btn.active, .mode-btn:hover {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+        }
+
+        .timer-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .btn {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        /* YouTube Section */
+        .yt-input-group {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .yt-input {
+            flex: 1;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 0.75rem 1rem;
+            color: white;
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .yt-input:focus {
+            border-color: var(--accent);
+        }
+
+        .player-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            background: #000;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .player-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Schedule Section */
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        .schedule-form {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr auto;
+            gap: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .schedule-form {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .form-input {
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 0.75rem 1rem;
+            color: white;
+            font-size: 0.95rem;
+            outline: none;
+        }
+
+        .form-input:focus {
+            border-color: var(--accent);
+        }
+
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: right;
+            margin-top: 0.5rem;
+        }
+
+        th, td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        th {
+            color: var(--text-muted);
+            font-weight: 600;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        td {
+            color: var(--text-main);
+        }
+
+        .badge {
+            background: rgba(99, 102, 241, 0.2);
+            color: #818cf8;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid rgba(99, 102, 241, 0.3);
+        }
+
+        .delete-btn {
+            background: rgba(239, 68, 68, 0.2);
+            color: #f87171;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            padding: 0.4rem 0.8rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .delete-btn:hover {
+            background: #ef4444;
+            color: white;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: auto;
+            border-top: 1px solid var(--border);
+            background: var(--bg-secondary);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>منصة الدراسة والتركيز</h1>
+        <!-- -- تم إضافة هذا السطر -- -->
+        <div class="developer-credit">تم إعداده بواسطة عبدالله علي</div>
+        <!-- ------------------------ -->
+        <p>نظم وقتك، ركز في مهامك، واستمتع بأجواء هادئة تساعدك على الإنتاجية</p>
+    </header>
+
+    <div class="main-container">
+        <!-- Timer Card -->
+        <div class="card">
+            <div class="card-title">
+                <i class="fa-solid fa-clock"></i>
+                عداد البومودورو للتركيز
+            </div>
+            <div class="timer-modes">
+                <button class="mode-btn active" onclick="setTimerMode(25, this)">دراسة (25 د)</button>
+                <button class="mode-btn" onclick="setTimerMode(5, this)">استراحة قصيرة (5 د)</button>
+                <button class="mode-btn" onclick="setTimerMode(15, this)">استراحة طويلة (15 د)</button>
+            </div>
+            <div class="timer-display" id="timerDisplay">25:00</div>
+            <div class="timer-controls">
+                <button class="btn" id="startPauseBtn" onclick="toggleTimer()">
+                    <i class="fa-solid fa-play" id="playPauseIcon"></i> <span id="playPauseText">بدء</span>
+                </button>
+                <button class="btn btn-secondary" onclick="resetTimer()">
+                    <i class="fa-solid fa-rotate-left"></i> إعادة ضبط
+                </button>
+            </div>
+        </div>
+
+        <!-- YouTube Audio/Player Card -->
+        <div class="card">
+            <div class="card-title">
+                <i class="fa-brands fa-youtube" style="color: #ef4444;"></i>
+                مشغل اليوتيوب (دراسة واسترخاء)
+            </div>
+            <div class="yt-input-group">
+                <input type="text" id="ytUrlInput" class="yt-input" placeholder="الصق رابط فيديو أو تشغيل يوتيوب هنا...">
+                <button class="btn" onclick="loadYouTubeVideo()">تشغيل</button>
+            </div>
+            <div class="player-container">
+                <div id="youtubePlayer"></div>
+            </div>
+        </div>
+
+        <!-- Schedule Card -->
+        <div class="card full-width">
+            <div class="card-title">
+                <i class="fa-solid fa-calendar-days"></i>
+                جدول المهام اليومية
+            </div>
+            <div class="schedule-form">
+                <input type="text" id="taskName" class="form-input" placeholder="اسم المهمة أو المادة الدراسية...">
+                <input type="text" id="taskTime" class="form-input" placeholder="الوقت (مثال: 04:00 - 06:00)">
+                <select id="taskCategory" class="form-input">
+                    <option value="دراسة">دراسة</option>
+                    <option value="مراجعة">مراجعة</option>
+                    <option value="استراحة">استراحة</option>
+                    <option value="أخرى">أخرى</option>
+                </select>
+                <button class="btn" onclick="addTask()">
+                    <i class="fa-solid fa-plus"></i> إضافة مهمة
+                </button>
+            </div>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>المهمة / المادة</th>
+                            <th>الوقت المحدد</th>
+                            <th>التصنيف</th>
+                            <th>الإجراءات</th>
+                        </tr>
+                    </thead>
+                    <tbody id="scheduleTableBody">
+                        <!-- Dynamic Rows -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        جميع الحقوق محفوظة &copy; 2026
+    </footer>
+
+    <!-- YouTube IFrame API Script -->
+    <script>
+        // --- Timer Logic ---
+        let totalSeconds = 25 * 60;
+        let timerInterval = null;
+        let isRunning = false;
+
+        const timerDisplay = document.getElementById('timerDisplay');
+        const startPauseBtn = document.getElementById('startPauseBtn');
+        const playPauseIcon = document.getElementById('playPauseIcon');
+        const playPauseText = document.getElementById('playPauseText');
+
+        function updateTimerDisplay() {
+            const minutes = Math.floor(totalSeconds / 60);
+            const seconds = totalSeconds % 60;
+            timerDisplay.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+        }
+
+        function setTimerMode(minutes, btnElement) {
+            clearInterval(timerInterval);
+            isRunning = false;
+            playPauseIcon.className = "fa-solid fa-play";
+            playPauseText.textContent = "بدء";
+            totalSeconds = minutes * 60;
+            updateTimerDisplay();
+
+            document.querySelectorAll('.mode-btn').forEach(btn => btn.classList.
+
